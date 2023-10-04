@@ -4,7 +4,7 @@
 // - protoc             buf-v1.17.0
 // source: did/v1/agent_api.proto
 
-package didv1
+package didV1
 
 import (
 	context "context"

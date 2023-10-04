@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aidtechnology/did-method/info"
-	"github.com/aidtechnology/did-method/resolver"
 	"github.com/spf13/viper"
+	"github.com/vold-hq/did-method/info"
+	"github.com/vold-hq/did-method/resolver"
 	"go.bryk.io/pkg/cli"
 	xlog "go.bryk.io/pkg/log"
 	mwHeaders "go.bryk.io/pkg/net/middleware/headers"
@@ -18,7 +18,7 @@ import (
 )
 
 // Default service name; used on telemetry and reporting data.
-const serviceName string = "did-bryk"
+const serviceName string = "did-vold"
 
 // Settings provide utilities to manage configuration options available
 // when utilizing the different components available through the CLI `didctl`

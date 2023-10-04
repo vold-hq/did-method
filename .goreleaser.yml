@@ -23,9 +23,9 @@ builds:
       - -v
     ldflags:
       - -s -w
-      - -X github.com/aidtechnology/did-method/info.CoreVersion={{.Version}}
-      - -X github.com/aidtechnology/did-method/info.BuildCode={{.Commit}}
-      - -X github.com/aidtechnology/did-method/info.BuildTimestamp={{.CommitDate}}
+      - -X github.com/vold-hq/did-method/info.CoreVersion={{.Version}}
+      - -X github.com/vold-hq/did-method/info.BuildCode={{.Commit}}
+      - -X github.com/vold-hq/did-method/info.BuildTimestamp={{.CommitDate}}
     # set the modified timestamp on the output binary to ensure a
     # reproducible build
     mod_timestamp: "{{ .CommitTimestamp }}"
@@ -45,7 +45,6 @@ builds:
 archives:
   # a single project can produce multiple archives
   - name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
-    rlcp: true
     builds:
       # artifacts to pack
       - didctl
@@ -57,7 +56,7 @@ archives:
       # include documentation files in the package for distribution
       - README.md
       - LICENSE*
-      - src: '*.md'
+      - src: "*.md"
         dst: docs
         strip_parent: true
 # generate integrity checksums
@@ -69,7 +68,6 @@ checksum:
 # https://goreleaser.com/customization/source/
 source:
   enabled: true
-  rlcp: true
 # produce test releases
 # https://goreleaser.com/customization/snapshots/
 snapshot:
@@ -78,7 +76,7 @@ snapshot:
 # https://goreleaser.com/customization/release/#customize-the-changelog
 changelog:
   # Sorts the changelog by the commit messages (asc, desc or '')
-  sort: ''
+  sort: ""
   # Remove certain commit messages from the changelog
   filters:
     # Standard commit messages can help to produce better changelogs
@@ -107,24 +105,23 @@ dockers:
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.version={{ .Version }}"
       - "--label=org.opencontainers.image.created={{ .CommitDate }}"
-      - "--label=org.opencontainers.image.source=https://github.com/aidtechnology/did-method"
+      - "--label=org.opencontainers.image.source=https://github.com/vold-hq/did-method"
     # Skips the docker push if there is an indicator for prerelease
     # in the tag e.g. v1.0.0-rc1 (auto)
     skip_push: auto
     image_templates:
-      - "ghcr.io/aidtechnology/{{ .ProjectName }}:{{ .Version }}"
-      - "ghcr.io/aidtechnology/{{ .ProjectName }}:latest"
+      - "ghcr.io/vold-hq/{{ .ProjectName }}:{{ .Version }}"
+      - "ghcr.io/vold-hq/{{ .ProjectName }}:latest"
 # Produce homebrew formulas for the project artifacts
 # https://goreleaser.com/customization/homebrew/
 brews:
-  -
-    # Formula name
+  - # Formula name
     name: didctl
     # Push the formula to the tap repository
     skip_upload: "false"
     # TAP repository
-    tap:
-      owner: bryk-io
+    repository:
+      owner: vold-hq
       name: homebrew-tap
     # Use 'github-actions' as commit author
     # https://github.community/t/github-actions-bot-email-address/17204
@@ -132,9 +129,9 @@ brews:
       name: github-actions
       email: 41898282+github-actions[bot]@users.noreply.github.com
     # Project details
-    homepage: "https://github.com/aidtechnology/did-method"
+    homepage: "https://github.com/vold-hq/did-method"
     description: |
-      Reference client implementation for the 'bryk' DID method. The platform allows
+      Reference client implementation for the 'vold' DID method. The platform allows
       entities to fully manage Decentralized Identifiers as described on the version
       v1.0 of the specification.
     install: |
@@ -149,14 +146,13 @@ brews:
 # linux packages
 # https://goreleaser.com/customization/nfpm/
 nfpms:
-  -
-    file_name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+  - file_name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
     builds:
       - didctl
-    vendor: AID:Technology
-    homepage: https://github.com/aidtechnology/did-method
-    maintainer: Ben Cessa <ben@aid.technology>
-    description: Reference client implementation for the 'bryk' DID method.
+    vendor: Vold HQ
+    homepage: https://github.com/vold-hq/did-method
+    maintainer: Ben Cessa <ben@vold.ai>
+    description: Reference client implementation for the 'vold' DID method.
     license: BSD-3-Clause
     formats:
       # Alpine

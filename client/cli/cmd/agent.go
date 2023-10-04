@@ -7,10 +7,10 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/aidtechnology/did-method/agent"
-	"github.com/aidtechnology/did-method/agent/storage"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/vold-hq/did-method/agent"
+	"github.com/vold-hq/did-method/agent/storage"
 	"go.bryk.io/pkg/cli"
 	"go.bryk.io/pkg/net/rpc"
 )

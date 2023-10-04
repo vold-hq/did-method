@@ -9,9 +9,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/aidtechnology/did-method/agent/storage"
-	"github.com/aidtechnology/did-method/info"
-	protov1 "github.com/aidtechnology/did-method/proto/did/v1"
+	"github.com/vold-hq/did-method/agent/storage"
+	"github.com/vold-hq/did-method/info"
+	protov1 "github.com/vold-hq/did-method/proto/did/v1"
 	"go.bryk.io/pkg/did"
 	xlog "go.bryk.io/pkg/log"
 	"go.bryk.io/pkg/net/rpc"

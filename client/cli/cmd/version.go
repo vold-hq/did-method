@@ -5,8 +5,8 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/aidtechnology/did-method/info"
 	"github.com/spf13/cobra"
+	"github.com/vold-hq/did-method/info"
 )
 
 var versionCmd = &cobra.Command{

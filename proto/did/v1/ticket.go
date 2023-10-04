@@ -1,4 +1,4 @@
-package didv1
+package didV1 // nolint: stylecheck
 
 import (
 	"bytes"

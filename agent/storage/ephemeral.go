@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	protov1 "github.com/aidtechnology/did-method/proto/did/v1"
+	protov1 "github.com/vold-hq/did-method/proto/did/v1"
 	"go.bryk.io/pkg/did"
 	"go.bryk.io/pkg/errors"
 )

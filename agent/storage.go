@@ -1,7 +1,7 @@
 package agent
 
 import (
-	protov1 "github.com/aidtechnology/did-method/proto/did/v1"
+	protov1 "github.com/vold-hq/did-method/proto/did/v1"
 	"go.bryk.io/pkg/did"
 )
 

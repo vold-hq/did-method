@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 
-	protov1 "github.com/aidtechnology/did-method/proto/did/v1"
+	protov1 "github.com/vold-hq/did-method/proto/did/v1"
 	"go.bryk.io/pkg/otel"
 	otelApi "go.bryk.io/pkg/otel/api"
 	"google.golang.org/grpc/codes"

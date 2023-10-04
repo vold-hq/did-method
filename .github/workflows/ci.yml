@@ -1,11 +1,12 @@
 name: ci
+env:
+  commit_msg: ""
 on:
   push:
     branches:
       - '*'
   pull_request:
     branches:
-      - master
       - main
   workflow_dispatch: {}
 jobs:

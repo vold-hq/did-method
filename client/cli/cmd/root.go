@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/aidtechnology/did-method/client/internal"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/vold-hq/did-method/client/internal"
 	"go.bryk.io/pkg/errors"
 	xlog "go.bryk.io/pkg/log"
 )

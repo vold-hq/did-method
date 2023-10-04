@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package did.v1;
 
-option go_package = "did/v1;didv1";
+option go_package = "did/v1;didV1";
 
 import "google/protobuf/empty.proto";
 import "third_party/google/api/annotations.proto";
@@ -18,11 +18,11 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   produces: "application/json";
   produces: "application/protobuf";
   info: {
-    title: "DID bryk method";
+    title: "DID 'vold' method";
     version: "0.9.2";
     contact: {
       name: "Ben Cessa";
-      email: "ben@aid.technology";
+      email: "ben@vold.ai";
     };
   };
   security_definitions: {

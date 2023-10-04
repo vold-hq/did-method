@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/aidtechnology/did-method/client/store"
-	"github.com/aidtechnology/did-method/info"
-	"github.com/aidtechnology/did-method/resolver"
 	"github.com/spf13/viper"
+	"github.com/vold-hq/did-method/client/store"
+	"github.com/vold-hq/did-method/info"
+	"github.com/vold-hq/did-method/resolver"
 	"go.bryk.io/pkg/crypto/ed25519"
 	xlog "go.bryk.io/pkg/log"
 	"go.bryk.io/pkg/net/rpc"

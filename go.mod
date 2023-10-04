@@ -1,4 +1,4 @@
-module github.com/aidtechnology/did-method
+module github.com/vold-hq/did-method
 
 go 1.18
 
