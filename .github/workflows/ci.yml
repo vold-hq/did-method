@@ -4,7 +4,7 @@ env:
 on:
   push:
     branches:
-      - '*'
+      - "*"
   pull_request:
     branches:
       - main
@@ -28,7 +28,7 @@ jobs:
 
       # Go
       - name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
           go-version: 1.20.x
 
@@ -70,7 +70,7 @@ jobs:
 
       # Go
       - name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
           go-version: 1.20.x
 
@@ -101,7 +101,7 @@ jobs:
         uses: bufbuild/buf-breaking-action@v1.1.2
         if: steps.buf-lint.outcome == 'success' && !contains(env.commit_msg, '[skip buf-breaking]')
         with:
-          against: 'https://github.com/${{ github.repository }}.git#branch=${{ github.event.repository.default_branch }}'
+          against: "https://github.com/${{ github.repository }}.git#branch=${{ github.event.repository.default_branch }}"
         env:
           BUF_INPUT_HTTPS_USERNAME: ${{ github.actor }}
           BUF_INPUT_HTTPS_PASSWORD: ${{ secrets.ACCESS_TOKEN }}
@@ -113,7 +113,7 @@ jobs:
     needs: protos
     strategy:
       matrix:
-        go-version: [1.19.x, 1.20.x, 1.21.x]
+        go-version: [1.20.x, 1.21.x]
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
@@ -131,7 +131,7 @@ jobs:
 
       # Go
       - name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go-version }}
 
@@ -147,7 +147,7 @@ jobs:
       - name: Static analysis
         uses: golangci/golangci-lint-action@v3
         with:
-          version: v1.51.2
+          version: v1.54.2
 
       # Run unit tests
       - name: Test
@@ -159,8 +159,8 @@ jobs:
 
       # Save artifacts
       - name: Save artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: assets
           path: |
-            coverage.html
+            coverage-${{ matrix.go-version }}.html

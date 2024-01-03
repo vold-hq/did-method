@@ -18,7 +18,7 @@ type rpcHandler struct {
 	handler *Handler
 }
 
-func (rh *rpcHandler) Ping(ctx context.Context, _ *emptypb.Empty) (*protov1.PingResponse, error) {
+func (rh *rpcHandler) Ping(_ context.Context, _ *emptypb.Empty) (*protov1.PingResponse, error) {
 	return &protov1.PingResponse{Ok: true}, nil
 }
 

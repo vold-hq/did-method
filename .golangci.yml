@@ -1,9 +1,11 @@
 run:
-  deadline: 5m
+  timeout: 5m
   issues-exit-code: 1
   tests: true
   build-tags: []
   skip-dirs-use-default: true
+  skip-dirs:
+    - "proto/did/v1"
   skip-files:
     - ".*\\.pb\\.go$"
     - ".*\\.pb\\.gw\\.go$"
@@ -25,10 +27,8 @@ linters:
     - typecheck
     - gocyclo
     - goconst
-    - depguard
     - misspell
     - lll
-    - nakedret
     - prealloc
     - gosec
     - bodyclose
@@ -45,16 +45,18 @@ linters:
     - predeclared
     - exportloopref
     - whitespace
+    - nestif
+    - funlen
     # Deprecated linters
-    #- wrapcheck
-    #- nestif
-    #- funlen
-    #- ifshort
-    #- varcheck
+    # - wrapcheck
+    # - ifshort
+    # - varcheck
   disable:
     - deadcode
     - unused
     - dupl
+    - depguard
+    - nakedret
     # https://github.com/golangci/golangci-lint/issues/2649
     - structcheck
     - wastedassign
@@ -103,10 +105,6 @@ linters-settings:
   goconst:
     min-len: 3
     min-occurrences: 5
-  depguard:
-    list-type: blacklist
-    include-go-root: false
-    packages: []
   misspell:
     locale: US
     ignore-words: []

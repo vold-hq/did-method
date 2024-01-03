@@ -38,7 +38,7 @@ type Settings struct {
 // Overrides return the available flag overrides for the command specified.
 // Specific settings can be provided via: configuration file, ENV variable
 // and command flags.
-func (s *Settings) Overrides(cmd string) []cli.Param {
+func (s *Settings) Overrides(cmd string) []cli.Param { // nolint: funlen
 	switch cmd {
 	case "agent":
 		return []cli.Param{
